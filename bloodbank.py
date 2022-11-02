@@ -14,7 +14,8 @@ while True:
     print("7 display blood group by category")
     print("8 total number of donors by category")
     print("9 display minimum donor age")
-    print("10 exit")
+    print("10 display maximum donor age")
+    print("11 exit")
     ch=int(input("select an option  : \n"))
     if (ch==1):    
         name=input("Enter the name")
@@ -82,7 +83,12 @@ while True:
         mycursor.execute(sql)
         result = mycursor.fetchall()
         for i in result:
-            print(i)
-        
+            print(i)        
     elif(ch==10):
+        sql ="SELECT MAX(`age`) AS min_age,`name`, `address`, `phno`,`bloodgp` FROM `donor`"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
+    elif(ch==11):
         break
