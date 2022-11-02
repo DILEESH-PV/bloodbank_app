@@ -25,7 +25,11 @@ while True:
         mydb.commit()        
         print("inserted success")
     elif(ch==2):
-         print("selected view all donors")
+        sql='SELECT * FROM `donor`'
+        mycursor.execute(sql)
+        result=mycursor.fetchall()
+        for i in result:
+            print(i)
     elif(ch==3):
         print("selected search a donor")
     elif(ch==4):
