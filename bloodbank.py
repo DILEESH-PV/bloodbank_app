@@ -12,7 +12,8 @@ while True:
     print("5 delete  donor")
     print("6 search donor by specific letter in name ")
     print("7 display blood group by category")
-    print("8 exit")
+    print("8 total number of donors by category")
+    print("9 exit")
     ch=int(input("select an option  : \n"))
     if (ch==1):    
         name=input("Enter the name")
@@ -69,4 +70,11 @@ while True:
         for i in result:
             print(i)
     elif(ch==8):
+        print("Total number of donor in each category")
+        sql ="SELECT COUNT(id) AS total,`bloodgp` FROM `donor` GROUP BY `bloodgp`"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
+    elif(ch==9):
         break
