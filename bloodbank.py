@@ -11,7 +11,8 @@ while True:
     print("4 update  donor")
     print("5 delete  donor")
     print("6 search donor by specific letter in name ")
-    print("7 exit")
+    print("7 display blood group by category")
+    print("8 exit")
     ch=int(input("select an option  : \n"))
     if (ch==1):    
         name=input("Enter the name")
@@ -61,4 +62,11 @@ while True:
         for i in result:
             print(i)
     elif(ch==7):
+        bgc = input("Enter the blood group ")
+        sql = "SELECT * FROM `donor` WHERE `bloodgp` = '"+bgc+"'"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
+    elif(ch==8):
         break
