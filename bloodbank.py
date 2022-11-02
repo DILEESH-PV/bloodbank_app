@@ -13,7 +13,8 @@ while True:
     print("6 search donor by specific letter in name ")
     print("7 display blood group by category")
     print("8 total number of donors by category")
-    print("9 exit")
+    print("9 display minimum donor age")
+    print("10 exit")
     ch=int(input("select an option  : \n"))
     if (ch==1):    
         name=input("Enter the name")
@@ -77,4 +78,11 @@ while True:
         for i in result:
             print(i)
     elif(ch==9):
+        sql ="SELECT MIN(`age`) AS min_age,`name`, `address`, `phno`,`bloodgp` FROM `donor`"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
+        
+    elif(ch==10):
         break
