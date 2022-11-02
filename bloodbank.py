@@ -38,7 +38,14 @@ while True:
         for i in result:
             print(i)
     elif(ch==4):
-        print("selected update  donor")
+        name=input("Enter the donor name ")
+        address=input("enter the address to be updated")
+        phn=input("enter the phone number to be updated ")
+        age=input("enter the age to be updated")
+        sql="UPDATE `donor` SET `address`='"+address+"',`phno`='"+phn+"',`age`='"+age+"' WHERE `name`='"+name+"'"
+        mycursor.execute(sql)
+        mydb.commit()
+        print("updated successfully") 
     elif(ch==5):
         print("selected delete donor")
     elif(ch==6):
