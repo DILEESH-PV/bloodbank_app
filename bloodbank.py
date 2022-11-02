@@ -31,7 +31,12 @@ while True:
         for i in result:
             print(i)
     elif(ch==3):
-        print("selected search a donor")
+        name=input("Enter the  name for searching the donors")
+        sql="SELECT * FROM `donor` WHERE `name`='"+name+"'"
+        mycursor.execute(sql)
+        result=mycursor.fetchall()
+        for i in result:
+            print(i)
     elif(ch==4):
         print("selected update  donor")
     elif(ch==5):
