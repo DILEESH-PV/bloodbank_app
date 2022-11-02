@@ -47,6 +47,10 @@ while True:
         mydb.commit()
         print("updated successfully") 
     elif(ch==5):
-        print("selected delete donor")
+        name=input("Enter the donor name for deletion ")
+        sql="DELETE FROM `donor` WHERE `name`='"+name+"'"
+        mycursor.execute(sql)
+        mydb.commit()
+        print("deleted successfully")
     elif(ch==6):
         break
