@@ -10,7 +10,8 @@ while True:
     print("3 search a donor")
     print("4 update  donor")
     print("5 delete  donor")
-    print("6 exit")
+    print("6 search donor by specific letter in name ")
+    print("7 exit")
     ch=int(input("select an option  : \n"))
     if (ch==1):    
         name=input("Enter the name")
@@ -53,4 +54,11 @@ while True:
         mydb.commit()
         print("deleted successfully")
     elif(ch==6):
+        sl= input("Enter the letter to search the donor ")
+        sql="SELECT `name`, `address`, `phno`, `age`, `sex`,`bloodgp` FROM `donor` WHERE `name` LIKE '"+sl+"%'"
+        mycursor.execute(sql)
+        result = mycursor.fetchall()
+        for i in result:
+            print(i)
+    elif(ch==7):
         break
